@@ -1,0 +1,27 @@
+name: 'Supply Shield'
+description: 'Plant canary tokens in your CI/CD pipeline to detect supply chain attacks'
+author: 'AgentDefenders'
+
+branding:
+  icon: 'shield'
+  color: 'red'
+
+inputs:
+  email:
+    description: 'Email address for trip alerts (free tier, no registration required)'
+    required: false
+  api-key:
+    description: 'AgentDefenders API key (paid tier, full dashboard access)'
+    required: false
+  package:
+    description: 'Alarm package to deploy (generic, oss-python, ai-ml-pipeline, node-backend). Free tier defaults to generic.'
+    required: false
+    default: 'generic'
+  api-url:
+    description: 'Supply Shield API endpoint (default: production)'
+    required: false
+    default: 'https://api.agentdefenders.ai'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
